@@ -1,4 +1,5 @@
 import { styledMessage } from './styledMessage.js';
+import { INFORMATION_PROMPT } from '../config.js';
 
 const showWelcomeMessage = (username) => {
   console.log(
@@ -12,6 +13,7 @@ const showWelcomeMessage = (username) => {
       'bold'
     )}`
   );
+  console.log(INFORMATION_PROMPT);
 };
 
 export { showWelcomeMessage };

@@ -1,8 +1,9 @@
+import { EOL } from 'os';
 import { styledMessage } from './styledMessage.js';
 
 const showExitMessage = (username) => {
   console.log(
-    `${styledMessage(
+    `${EOL}${styledMessage(
       'Thank you for using File Manager, ',
       'green',
       'bold'
