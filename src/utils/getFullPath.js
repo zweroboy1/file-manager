@@ -4,7 +4,7 @@ const getFullPath = (inputPath) => {
   const currentDirectory = process.cwd();
 
   const fullPath = path.isAbsolute(inputPath)
-    ? folder
+    ? inputPath
     : path.join(currentDirectory, inputPath);
   const resultPath = path.normalize(fullPath);
   return resultPath;
