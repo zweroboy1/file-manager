@@ -1,1 +1,4 @@
-console.log('hi');
+import { getUsernameFromArgs } from './modules/getUsernameFromArgs.js';
+
+const username = getUsernameFromArgs();
+console.log(username);
