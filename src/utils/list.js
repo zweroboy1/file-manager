@@ -1,9 +1,9 @@
-import fs from 'fs';
-import { FILE_SYSTEM_ERROR_TEXT } from '../config.js';
+import fs from 'fs/promises';
+import { FAILED_OPERATION_MESSAGE } from '../config.js';
 
 const list = async (folder) => {
   try {
-    const directoryData = await fs.promises.readdir(folder, {
+    const directoryData = await fs.readdir(folder, {
       withFileTypes: true,
     });
 
@@ -22,7 +22,7 @@ const list = async (folder) => {
 
     return directoryList;
   } catch (error) {
-    throw new Error(FILE_SYSTEM_ERROR_TEXT);
+    throw new Error(FAILED_OPERATION_MESSAGE);
   }
 };
 
