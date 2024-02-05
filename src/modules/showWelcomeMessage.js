@@ -13,7 +13,7 @@ const showWelcomeMessage = (username) => {
       'bold'
     )}`
   );
-  console.log(INFORMATION_PROMPT);
+  console.log(styledMessage(INFORMATION_PROMPT, 'green', 'italic'));
 };
 
 export { showWelcomeMessage };
