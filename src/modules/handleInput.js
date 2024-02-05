@@ -1,11 +1,26 @@
 import { convertInputToArray } from './convertInputToArray.js';
 import { showErrorMessage } from './showErrorMessage.js';
 import { printOsInformation } from './printOsInformation.js';
+import { executeLs } from './executeLs.js';
 import { INVALID_INPUT_MESSAGE } from '../config.js';
 
-const COMMANDS = { os: printOsInformation };
+const COMMANDS = {
+  os: printOsInformation,
+  cd: () => {},
+  up: () => {},
+  ls: executeLs,
+  cat: () => {},
+  add: () => {},
+  rn: () => {},
+  cp: () => {},
+  mv: () => {},
+  rm: () => {},
+  hash: () => {},
+  compress: () => {},
+  decompress: () => {},
+};
 
-const handleInput = (input) => {
+const handleInput = async (input) => {
   const inputData = convertInputToArray(input);
   if (inputData.length === 0) {
     return;
@@ -18,8 +33,11 @@ const handleInput = (input) => {
     );
     return;
   }
-
-  COMMANDS[currentCommand](params);
+  try {
+    await COMMANDS[currentCommand](params);
+  } catch (error) {
+    showErrorMessage(error.message);
+  }
 };
 
 export { handleInput };

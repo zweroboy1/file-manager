@@ -17,17 +17,14 @@ showCurrentPath();
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
+  prompt: PROMPT_TEXT,
 });
-
-rl.setPrompt(PROMPT_TEXT);
 
 rl.on('line', (input) => {
   if (input.trim().toLowerCase() === EXIT_COMMAND) {
     rl.close();
   }
-
-  handleInput(input);
-  rl.prompt();
+  handleInput(input).then(() => rl.prompt());
 });
 
 rl.on('close', () => {

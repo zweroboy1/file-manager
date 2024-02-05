@@ -5,3 +5,4 @@ export const PROMPT_TEXT = '> ';
 export const EXIT_COMMAND = '.exit';
 export const INVALID_INPUT_MESSAGE = 'Invalid input';
 export const CURRENT_PATH_TEXT = 'You are currently in';
+export const FILE_SYSTEM_ERROR_TEXT = 'FS operation failed';
