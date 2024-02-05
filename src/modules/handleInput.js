@@ -8,6 +8,8 @@ import { executeCat } from './executeCat.js';
 import { executeAdd } from './executeAdd.js';
 import { executeRm } from './executeRm.js';
 import { executeHash } from './executeHash.js';
+import { executeCompress } from './executeCompress.js';
+import { executeDecompress } from './executeDecompress.js';
 
 import { INVALID_INPUT_MESSAGE } from '../config.js';
 
@@ -23,8 +25,8 @@ const COMMANDS = {
   mv: () => {},
   rm: executeRm,
   hash: executeHash,
-  compress: () => {},
-  decompress: () => {},
+  compress: executeCompress,
+  decompress: executeDecompress,
 };
 
 const handleInput = async (input) => {
