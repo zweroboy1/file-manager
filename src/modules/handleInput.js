@@ -1,8 +1,9 @@
 import { convertInputToArray } from './convertInputToArray.js';
 import { showErrorMessage } from './showErrorMessage.js';
-import { getOsInformation } from './getOsInformation.js';
+import { printOsInformation } from './printOsInformation.js';
+import { INVALID_INPUT_MESSAGE } from '../config.js';
 
-const COMMANDS = { os: getOsInformation };
+const COMMANDS = { os: printOsInformation };
 
 const handleInput = (input) => {
   const inputData = convertInputToArray(input);
@@ -11,7 +12,10 @@ const handleInput = (input) => {
   }
   const [currentCommand, ...params] = inputData;
   if (!(currentCommand in COMMANDS)) {
-    showErrorMessage('Invalid input', `Unknown command "${inputData[0]}"`);
+    showErrorMessage(
+      INVALID_INPUT_MESSAGE,
+      `Unknown command "${inputData[0]}"`
+    );
     return;
   }
 
