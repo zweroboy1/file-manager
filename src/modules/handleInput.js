@@ -6,6 +6,7 @@ import { executeCd } from './executeCd.js';
 import { executeUp } from './executeUp.js';
 import { executeCat } from './executeCat.js';
 import { executeAdd } from './executeAdd.js';
+import { executeRm } from './executeRm.js';
 import { executeHash } from './executeHash.js';
 
 import { INVALID_INPUT_MESSAGE } from '../config.js';
@@ -20,7 +21,7 @@ const COMMANDS = {
   rn: () => {},
   cp: () => {},
   mv: () => {},
-  rm: () => {},
+  rm: executeRm,
   hash: executeHash,
   compress: () => {},
   decompress: () => {},
