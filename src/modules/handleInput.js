@@ -1,6 +1,6 @@
 import { convertInputToArray } from './convertInputToArray.js';
 import { showErrorMessage } from './showErrorMessage.js';
-import { printOsInformation } from './printOsInformation.js';
+import { executeOs } from './executeOs.js';
 import { executeLs } from './executeLs.js';
 import { executeCd } from './executeCd.js';
 import { executeUp } from './executeUp.js';
@@ -10,7 +10,7 @@ import { executeAdd } from './executeAdd.js';
 import { INVALID_INPUT_MESSAGE } from '../config.js';
 
 const COMMANDS = {
-  os: printOsInformation,
+  os: executeOs,
   cd: executeCd,
   up: executeUp,
   ls: executeLs,

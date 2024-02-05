@@ -3,7 +3,7 @@ import { showErrorMessage } from './showErrorMessage.js';
 import { showResultMessage } from './showResultMessage.js';
 import { INVALID_INPUT_MESSAGE } from '../config.js';
 
-const printOsInformation = (params) => {
+const executeOs = (params) => {
   const paramActions = {
     '--EOL': () => {
       showResultMessage('End of Line', JSON.stringify(os.EOL).slice(1, -1));
@@ -64,4 +64,4 @@ const printOsInformation = (params) => {
   }
 };
 
-export { printOsInformation };
+export { executeOs };
