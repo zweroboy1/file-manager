@@ -4,6 +4,7 @@ import { printOsInformation } from './printOsInformation.js';
 import { executeLs } from './executeLs.js';
 import { executeCd } from './executeCd.js';
 import { executeUp } from './executeUp.js';
+import { executeCat } from './executeCat.js';
 
 import { INVALID_INPUT_MESSAGE } from '../config.js';
 
@@ -12,7 +13,7 @@ const COMMANDS = {
   cd: executeCd,
   up: executeUp,
   ls: executeLs,
-  cat: () => {},
+  cat: executeCat,
   add: () => {},
   rn: () => {},
   cp: () => {},

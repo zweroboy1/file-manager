@@ -1,16 +1,11 @@
-import path from 'path';
+import { getFullPath } from './getFullPath.js';
 
 const chdir = async (folder) => {
-  const currentDirectory = process.cwd();
-
-  const fullPath = path.isAbsolute(folder)
-    ? folder
-    : path.join(currentDirectory, folder);
-  const resultPath = path.normalize(fullPath);
+  const fullPath = getFullPath(folder);
   try {
-    process.chdir(resultPath);
+    process.chdir(fullPath);
   } catch {
-    throw new Error(`no such directory - ${resultPath}`);
+    throw new Error(`no such directory - ${fullPath}`);
   }
 };
 

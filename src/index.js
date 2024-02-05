@@ -17,7 +17,6 @@ showCurrentPath();
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: PROMPT_TEXT,
 });
 
 rl.on('line', (input) => {
