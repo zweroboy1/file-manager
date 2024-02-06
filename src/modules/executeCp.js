@@ -3,20 +3,20 @@ import { showResultMessage } from './showResultMessage.js';
 import { showCurrentPath } from './showCurrentPath.js';
 import { INVALID_INPUT_MESSAGE, FAILED_OPERATION_MESSAGE } from '../config.js';
 
-import { deleteFile } from '../utils/deleteFile.js';
+import { copyFile } from '../utils/copyFile.js';
 
-const executeRm = async (params) => {
-  if (!params.length) {
+const executeCp = async (params) => {
+  if (params.length < 2) {
     showErrorMessage(
       INVALID_INPUT_MESSAGE,
-      `rm command should have a parameter, ex. "rm 'bad file.txt'"`
+      `cp command should have 2 parameters, ex. "cp file1.txt file2.txt`
     );
     return;
   }
 
   try {
-    const deletedFilePath = await deleteFile(params[0]);
-    showResultMessage('File was deleted', deletedFilePath);
+    const copiedFilePath = await copyFile(params[0], params[1]);
+    showResultMessage('File was copied to', copiedFilePath);
   } catch (error) {
     showErrorMessage(FAILED_OPERATION_MESSAGE, error.message);
   } finally {
@@ -24,4 +24,4 @@ const executeRm = async (params) => {
   }
 };
 
-export { executeRm };
+export { executeCp };

@@ -3,20 +3,20 @@ import { showResultMessage } from './showResultMessage.js';
 import { showCurrentPath } from './showCurrentPath.js';
 import { INVALID_INPUT_MESSAGE, FAILED_OPERATION_MESSAGE } from '../config.js';
 
-import { deleteFile } from '../utils/deleteFile.js';
+import { renameFile } from '../utils/renameFile.js';
 
-const executeRm = async (params) => {
-  if (!params.length) {
+const executeRn = async (params) => {
+  if (params.length < 2) {
     showErrorMessage(
       INVALID_INPUT_MESSAGE,
-      `rm command should have a parameter, ex. "rm 'bad file.txt'"`
+      `rn command should have 2 parameters, ex. "rn file1.txt file2.txt`
     );
     return;
   }
 
   try {
-    const deletedFilePath = await deleteFile(params[0]);
-    showResultMessage('File was deleted', deletedFilePath);
+    const renamedFilePath = await renameFile(params[0], params[1]);
+    showResultMessage('File was renamed to', renamedFilePath);
   } catch (error) {
     showErrorMessage(FAILED_OPERATION_MESSAGE, error.message);
   } finally {
@@ -24,4 +24,4 @@ const executeRm = async (params) => {
   }
 };
 
-export { executeRm };
+export { executeRn };

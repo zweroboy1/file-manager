@@ -6,6 +6,9 @@ import { executeCd } from './executeCd.js';
 import { executeUp } from './executeUp.js';
 import { executeCat } from './executeCat.js';
 import { executeAdd } from './executeAdd.js';
+import { executeRn } from './executeRn.js';
+import { executeCp } from './executeCp.js';
+import { executeMv } from './executeMv.js';
 import { executeRm } from './executeRm.js';
 import { executeHash } from './executeHash.js';
 import { executeCompress } from './executeCompress.js';
@@ -20,9 +23,9 @@ const COMMANDS = {
   ls: executeLs,
   cat: executeCat,
   add: executeAdd,
-  rn: () => {},
-  cp: () => {},
-  mv: () => {},
+  rn: executeRn,
+  cp: executeCp,
+  mv: executeMv,
   rm: executeRm,
   hash: executeHash,
   compress: executeCompress,
